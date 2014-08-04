@@ -16,7 +16,7 @@ Then, set up a [Cron][2] job that runs the script every minute by going to your 
 crontab -e
 ```
 
-Then, enter this line and replace :
+Then, enter this line and save:
 
 ```bash
 * * * * * python /path/to/the/script/batlog.py /path/to/your/log/file/batlog.csv
