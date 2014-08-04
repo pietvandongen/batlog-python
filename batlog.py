@@ -3,8 +3,6 @@ import subprocess
 import sys
 import time
 
-from collections import OrderedDict
-
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
 KEY_DELIMITER = '"'
 VALUE_DELIMITER = '" = '
