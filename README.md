@@ -32,7 +32,15 @@ crontab -l
 
 ## Viewing the log file
 
+### On your system
+
 Go to the directory you set above and open the file. In the above case, it's located at `/path/to/your/log/file/batlog.csv`.
+
+### Visualizing data
+ 
+You can generate a graph of your log by dropping the CSV in the [batlog chart generator][3]. This will generate a chart that looks like this:
+
+![example graph](http://pietvandongen.github.io/batlog-d3-chart/images/example.png)
 
 ## Example
 
@@ -55,3 +63,4 @@ Apache License, Version 2.0, see `LICENSE.md`.
 
 [1]: https://github.com/jradavenport/batlog
 [2]: http://en.wikipedia.org/wiki/Cron
+[3]: http://pietvandongen.github.io/batlog-d3-chart/
