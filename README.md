@@ -32,7 +32,11 @@ crontab -l
 
 ### Viewing the log file
 
-Go to the directory you set above and open the file. In the above case, it's located at `/path/to/your/log/file/batlog.csv`. 
+Go to the directory you set above and open the file. In the above case, it's located at `/path/to/your/log/file/batlog.csv`.
+ 
+## License
+
+Apache License, Version 2.0, see `LICENSE.md`.
 
 [1]: https://github.com/jradavenport/batlog
 [2]: http://en.wikipedia.org/wiki/Cron
