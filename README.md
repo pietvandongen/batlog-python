@@ -30,9 +30,24 @@ You can check your Cron configuration by typing:
 crontab -l
 ```
 
-### Viewing the log file
+## Viewing the log file
 
 Go to the directory you set above and open the file. In the above case, it's located at `/path/to/your/log/file/batlog.csv`.
+
+## Example
+
+The script generates logs that look like this:
+
+```csv
+Date,DesignCapacity,CurrentCapacity,MaxCapacity,CycleCount
+2014-08-04 14:42:01,8440,870,8199,153
+2014-08-04 14:43:00,8440,851,8206,153
+2014-08-04 14:44:00,8440,828,8207,153
+2014-08-04 14:45:01,8440,788,8195,153
+2014-08-04 14:46:00,8440,764,8199,153
+2014-08-04 14:47:01,8440,718,8183,153
+2014-08-04 14:48:00,8440,707,8198,153
+```
  
 ## License
 
