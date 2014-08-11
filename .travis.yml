@@ -4,6 +4,6 @@ python:
 install:
   - pip install nose
   - pip install coveralls
-script: nosetests --with-coverage --cover-package=batlog2csv
+script: nosetests --with-coverage --cover-package=batlog
 after_success:
   coveralls
