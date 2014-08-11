@@ -26,7 +26,6 @@ class BatlogPython:
         COLUMN_NAME_DESIGN_CAPACITY
     ]
 
-    file_has_header = False
     log_entry = {}
     registry_contents = ""
 
@@ -46,6 +45,7 @@ class BatlogPython:
 
     def write_log_entry(self, output_file_path):
         header = self.OUTPUT_DELIMITER.join(self.log_entry.keys()) + "\n"
+        file_has_header = False
 
         if os.path.isfile(output_file_path):
             with open(output_file_path, 'r') as openFile:

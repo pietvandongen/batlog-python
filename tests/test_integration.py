@@ -1,10 +1,13 @@
 import os
 from os.path import dirname, abspath
+
 from batlog import BatlogPython
+
 
 baseDir = dirname(abspath(__file__)) + os.path.sep
 
 IOREG_DATA_FILE_PATH = "data/ioreg_partial_output"
+
 
 def test_that_correct_data_is_parsed():
     with open(baseDir + IOREG_DATA_FILE_PATH) as data_file:
