@@ -11,58 +11,66 @@ class BatlogPython:
     OUTPUT_DELIMITER = ","
     MATCHES = ["CycleCount", "Capacity"]
     COMMAND = ["/usr/sbin/ioreg", "-l"]
+
+    COLUMN_NAME_DATE = "Date"
+    COLUMN_NAME_CYCLE_COUNT = "CycleCount"
+    COLUMN_NAME_MAXIMUM_CAPACITY = "MaxCapacity"
+    COLUMN_NAME_CURRENT_CAPACITY = "CurrentCapacity"
+    COLUMN_NAME_DESIGN_CAPACITY = "DesignCapacity"
+
     COLUMNS = [
-        "Date",
-        "CycleCount",
-        "MaxCapacity",
-        "CurrentCapacity",
-        "DesignCapacity"
+        COLUMN_NAME_DATE,
+        COLUMN_NAME_CYCLE_COUNT,
+        COLUMN_NAME_MAXIMUM_CAPACITY,
+        COLUMN_NAME_CURRENT_CAPACITY,
+        COLUMN_NAME_DESIGN_CAPACITY
     ]
 
-    fileHasHeader = False
-    logEntry = {}
+    file_has_header = False
+    log_entry = {}
+    registry_contents = ""
 
-    def __init__(self):
-        # Get output file name
-        try:
-            outputFile = str(sys.argv[1])
-        except IndexError:
-            print "Error: please provide an output file name"
-            sys.exit(2)
+    def __init__(self, registry_contents):
+        self.registry_contents = registry_contents
 
-        # Read I/O registry and save output
-        process = subprocess.Popen(BatlogPython.COMMAND, stdout=subprocess.PIPE)
-        logContents, error = process.communicate()
+    def set_log_entry(self):
+        self.log_entry["Date"] = time.strftime(self.DATE_FORMAT)
 
-        # Append the date and time
-        self.logEntry["Date"] = time.strftime(self.DATE_FORMAT)
-
-        # Get values from log
-        for line in logContents.split(os.linesep):
+        for line in self.registry_contents.split(os.linesep):
             if any(match in line for match in self.MATCHES):
                 key = line[line.find(self.KEY_DELIMITER) + len(self.KEY_DELIMITER):line.find(self.VALUE_DELIMITER)]
                 value = line[line.find(self.VALUE_DELIMITER) + len(self.VALUE_DELIMITER):]
 
                 if key in self.COLUMNS:
-                    self.logEntry[key] = value
+                    self.log_entry[key] = value
 
-        OUTPUT_HEADER = self.OUTPUT_DELIMITER.join(self.logEntry.keys()) + "\n"
+    def write_log_entry(self, output_file_path):
+        header = self.OUTPUT_DELIMITER.join(self.log_entry.keys()) + "\n"
 
-        # Check if the output file has the correct header
-        if os.path.isfile(outputFile):
-            with open(outputFile, 'r') as openFile:
-                fileHasHeader = (openFile.readline() == OUTPUT_HEADER)
+        if os.path.isfile(output_file_path):
+            with open(output_file_path, 'r') as openFile:
+                file_has_header = (openFile.readline() == header)
 
-        # Write to file
-        with open(outputFile, 'a+') as openFile:
-            if not fileHasHeader:
-                openFile.write(OUTPUT_HEADER)
+        with open(output_file_path, 'a+') as openFile:
+            if not file_has_header:
+                openFile.write(header)
 
-            openFile.write(self.OUTPUT_DELIMITER.join(self.logEntry.values()) + "\n")
+            openFile.write(self.OUTPUT_DELIMITER.join(self.log_entry.values()) + "\n")
 
 
 def main():
-    BatlogPython()
+    try:
+        output_file_path = str(sys.argv[1])
+    except IndexError:
+        print "Error: please provide an output file name"
+        sys.exit(2)
+
+    process = subprocess.Popen(BatlogPython.COMMAND, stdout=subprocess.PIPE)
+    registry_contents, error = process.communicate()
+
+    batlog_python = BatlogPython(registry_contents)
+    batlog_python.set_log_entry()
+    batlog_python.write_log_entry(output_file_path)
 
 
 if __name__ == "__main__":
