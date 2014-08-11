@@ -1,0 +1,85 @@
++-o Root  <class IORegistryEntry, id 0x100000100, retain 9>
+  | {
+  |   "IOKitBuildVersion" = "Darwin Kernel Version 13.3.0: Tue Jun  3 21:27:35 PDT 2014; root:xnu-2422.110.17~1/RELEASE_X86_64"
+  |   "OS Build Version" = "13E28"
+  |   "IONDRVFramebufferGeneration" = <0400000004000000>
+  |   "OSKernelCPUSubtype" = 3
+  |   "OSKernelCPUType" = 16777223
+  |   "OSPrelinkKextCount" = 247
+  | }
+  |
+  +-o MacBookPro11,3  <class IOPlatformExpertDevice, id 0x100000112, registered, matched, active, busy 0 (11112 ms), retain 42>
+    | {
+    |   "compatible" = <"MacBookPro11,3">
+    |   "product-name" = <"MacBookPro11,3">
+    |   "model" = <"MacBookPro11,3">
+    |   "name" = <"/">
+    |   "IOBusyInterest" = "IOCommand is not serializable"
+    | }
+    | +-o SMB0  <class IOACPIPlatformDevice, id 0x1000001ac, registered, matched, active, busy 0 (1 ms), retain 10>
+    | | | {
+    | | |   "name" = <"ACPI0001">
+    | | |   "_STA" = 15
+    | | | }
+    | | | 
+    | | +-o AppleECSMBusController  <class AppleECSMBusController, id 0x10000024a, registered, matched, active, busy 0 (1 ms), retain 6>
+    | |   | {
+    | |   |   "_SBS" = 1
+    | |   |   "IOSMBusSmartBatteryManager" = Yes
+    | |   | }
+    | |   | 
+    | |   +-o AppleSmartBatteryManager  <class AppleSmartBatteryManager, id 0x10000024e, registered, matched, active, busy 0 (0 ms), retain 7>
+    | |     | {
+    | |     |   "IOPropertyMatch" = {"IOSMBusSmartBatteryManager"=Yes}
+    | |     |   "IOProbeScore" = 0
+    | |     |   "IOProviderClass" = "IOSMBusController"
+    | |     |   "IOClass" = "AppleSmartBatteryManager"
+    | |     |   "CFBundleIdentifier" = "com.apple.driver.AppleSmartBatteryManager"
+    | |     |   "IOMatchCategory" = "IODefaultMatchCategory"
+    | |     |   "IOUserClientClass" = "AppleSmartBatteryManagerUserClient"
+    | |     |   "IOPowerManagement" = {"MaxPowerState"=1,"CurrentPowerState"=1}
+    | |     | }
+    | |     | 
+    | |     +-o AppleSmartBattery  <class AppleSmartBattery, id 0x100000250, registered, matched, active, busy 0 (0 ms), retain 6>
+    | |         {
+    | |           "ExternalConnected" = No
+    | |           "TimeRemaining" = 103
+    | |           "InstantTimeToEmpty" = 107
+    | |           "ExternalChargeCapable" = No
+    | |           "FullPathUpdated" = 1407754153
+    | |           "CellVoltage" = (3713,3732,3737,0)
+    | |           "Voltage" = 11181
+    | |           "BatteryInvalidWakeSeconds" = 30
+    | |           "AdapterInfo" = 0
+    | |           "MaxCapacity" = 8181
+    | |           "PermanentFailureStatus" = 0
+    | |           "Manufacturer" = "SMP"
+    | |           "Location" = 0
+    | |           "CurrentCapacity" = 3188
+    | |           "LegacyBatteryInfo" = {"Amperage"=18446744073709549766,"Flags"=4,"Capacity"=8181,"Current"=3188,"Voltage"=11181,"Cycle Count"=158}
+    | |           "FirmwareSerialNumber" = XXX
+    | |           "BatteryInstalled" = Yes
+    | |           "PackReserve" = 200
+    | |           "CycleCount" = 158
+    | |           "DesignCapacity" = 8440
+    | |           "OperationStatus" = 58435
+    | |           "ManufactureDate" = 17225
+    | |           "AvgTimeToFull" = 65535
+    | |           "BatterySerialNumber" = "XXX"
+    | |           "BootPathUpdated" = 1407396735
+    | |           "PostDischargeWaitSeconds" = 120
+    | |           "Temperature" = 3042
+    | |           "UserVisiblePathUpdated" = 1407754273
+    | |           "InstantAmperage" = 63603
+    | |           "ManufacturerData" = <000000000702000112060000034a3435033030330341544c011100>
+    | |           "MaxErr" = 1
+    | |           "FullyCharged" = No
+    | |           "DeviceName" = "bq20z451"
+    | |           "IOGeneralInterest" = "IOCommand is not serializable"
+    | |           "Amperage" = 18446744073709549766
+    | |           "IsCharging" = No
+    | |           "DesignCycleCount9C" = 1000
+    | |           "PostChargeWaitSeconds" = 120
+    | |           "AvgTimeToEmpty" = 103
+    | |         }
+    | |         
