@@ -28,14 +28,18 @@ class BatlogPython:
 
     log_entry = {}
     registry_contents = ""
+    line_separator = os.linesep
 
-    def __init__(self, registry_contents):
+    def __init__(self, registry_contents, line_separator = os.linesep):
         self.registry_contents = registry_contents
+
+        if line_separator:
+            self.line_separator = line_separator
 
     def set_log_entry(self):
         self.log_entry["Date"] = time.strftime(self.DATE_FORMAT)
 
-        for line in self.registry_contents.split(os.linesep):
+        for line in self.registry_contents.split(self.line_separator):
             if any(match in line for match in self.MATCHES):
                 key = line[line.find(self.KEY_DELIMITER) + len(self.KEY_DELIMITER):line.find(self.VALUE_DELIMITER)]
                 value = line[line.find(self.VALUE_DELIMITER) + len(self.VALUE_DELIMITER):]

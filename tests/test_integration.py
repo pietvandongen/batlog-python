@@ -13,7 +13,7 @@ def test_that_correct_data_is_parsed():
     with open(baseDir + IOREG_DATA_FILE_PATH) as data_file:
         registry_contents = data_file.read()
 
-    batlog_python = BatlogPython(registry_contents)
+    batlog_python = BatlogPython(registry_contents, "\n")
     batlog_python.set_log_entry()
 
     assert batlog_python.COLUMN_NAME_DATE in batlog_python.log_entry.keys()
