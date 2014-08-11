@@ -6,7 +6,7 @@ from batlog import BatlogPython
 
 baseDir = dirname(abspath(__file__)) + os.path.sep
 
-IOREG_DATA_FILE_PATH = "data/ioreg_partial_output"
+IOREG_DATA_FILE_PATH = "data" + os.path.sep + "ioreg_partial_output"
 
 
 def test_that_correct_data_is_parsed():
