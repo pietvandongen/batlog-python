@@ -1,5 +1,7 @@
 # batlog-python
 
+[![Build Status](https://travis-ci.org/pietvandongen/batlog-python.svg?branch=master)](https://travis-ci.org/pietvandongen/batlog-python) [![Coverage Status](https://img.shields.io/coveralls/pietvandongen/batlog-python.svg)](https://coveralls.io/r/pietvandongen/batlog-python)
+
 An OS X battery data logger based on [batlog][1], written in Python.
 
 ## Usage
